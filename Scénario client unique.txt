@@ -1,0 +1,14 @@
+Scénario de test "client unique"
+--------------------------------
+Action 1 : créer une salle d'attente de capacité 30
+    Prédiction : La salle d'attente doit être vide
+Action 2 : créer un client quelconque, qu'on désignera par "unClient"
+Action 3 : faire entrer le client "unClient" dans la salle d'attente
+    Prédiction : La salle d'attente ne doit pas être vide
+    Prédiction : La salle d'attente ne doit pas être pleine
+    Prédiction : La salle d'attente doit être de taille 1
+    Prédiction : Le prochain à sortir de la salle d'attente doit être "unClient"
+Action 4 : faire sortir un client
+    Prédiction : La salle d'attente doit être vide
+
+
