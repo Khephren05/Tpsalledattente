@@ -4,21 +4,29 @@ public class LivrePrio extends Livre implements AvecPrio {
 
 	private int prio;
 	
-	public LivrePrio(String des, int q, double prix, int nbp, String isbn, int prio) {
+	public LivrePrio(String des, int q, double prix, int nbp, String isbn ) {
 		super(des, q, prix, nbp, isbn);
-		this.prio=prio;
+		if (q-(STOCK_MINIMAL+STOCK_MINIMAL/2)>0) {
+			this.prio=0;
+		}
+		else {
+			this.prio=(STOCK_MINIMAL+STOCK_MINIMAL/2)-q;
+		}
 	}
 	
 
-	public LivrePrio(String des, int q, double prix, int nbp, String isbn) {
-		super(des, q, prix, nbp, isbn);
-		// TODO Auto-generated constructor stub
-	}
 
 
 	@Override
 	public int getPrio() {
 		// TODO Auto-generated method stub
+		
+		if (getQuantite()-(STOCK_MINIMAL+STOCK_MINIMAL/2)>0) {
+			this.prio=0;
+		}
+		else {
+			this.prio=(STOCK_MINIMAL+STOCK_MINIMAL/2)-getQuantite();}
+		
 		return prio;
 	}
 	

@@ -6,7 +6,7 @@ public class AppliMinimale
 		public static void main(String[] args)
 		{
 			LivrePrio bouquin = new LivrePrio("C stock 0", 0, 23.3, 123, "isbn") ;
-			SalleDAttentePrio salle = new SalleDAttentePrio(20, 5) ;
+			SalleDAttentePrio<ArticlePrio> salle = new SalleDAttentePrio<ArticlePrio>(20, 5) ;
 			salle.entrer (new LivrePrio("A stock 5", 5, 23.3, 123, "isbn")) ;
 			salle.entrer (new LivrePrio("B stock 5", 5, 23.3, 123, "isbn")) ;
 			salle.entrer (bouquin) ;

@@ -2,6 +2,7 @@ package TPsalledattente;
 public class Article implements Comparable<Article>, SpecifArticle
 {
 	private final static double TAUX_TVA = 1.2 ;
+	public final static int STOCK_MINIMAL = 5;
 
 	@Override
 	public double getTauxTVA()

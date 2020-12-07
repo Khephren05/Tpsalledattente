@@ -89,7 +89,35 @@ public class SalleDAttentePrio<TC extends AvecPrio> implements SalleDAttente<TC>
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	
+	public void reorganiser() {
+		
+		for (int i=0; i<=maxPrio; i++) {
+			for(TC obj: salle.get(i)) {
+				if(obj.getPrio()!=i) {
+					
+					if(!(salle.get(obj.getPrio()).contains(obj))){
+						entrer(obj);
+					}
+				salle.get(i).remove(obj);
+				}
+				
+			}
+		}
+	}
+	
+    public void reorganiserErwann() {
+        for (Map.Entry<Integer,SalleDAttentePAPS<TC>> priot: salle.entrySet()) {           
+            for (int i=0; i<=priot.getValue().getNbClients() ;i++) {
+                int prioact=priot.getValue().get(i).getPrio();
+                if(prioact!=priot.getKey()) {
+                    entrer(priot.getValue().get(i));                   
+                    priot.getValue().remove(i);   
+                }   
+            }
+        }
+    }
 //	@Override
 //	public int getPrio() {
 //		// TODO Auto-generated method stub

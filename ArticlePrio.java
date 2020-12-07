@@ -6,20 +6,17 @@ public class ArticlePrio extends Article implements AvecPrio {
 	
 	private int prio;
 
-	public ArticlePrio(String designation, int quantite, double prixHT, int prio) {
-		super(designation, quantite, prixHT);
-		this.prio=prio;
-		
-		
-	}
-	
-
 	public ArticlePrio(String designation, int quantite, double prixHT) {
 		super(designation, quantite, prixHT);
-		// TODO Auto-generated constructor stub
+		if (quantite-STOCK_MINIMAL>0) {
+			this.prio=0;
+		}
+		else {
+			this.prio=STOCK_MINIMAL-quantite;
+		}	
 	}
 	
-
+	
 
 	public ArticlePrio(String des, double prix) {
 		super(des, prix);
@@ -29,13 +26,18 @@ public class ArticlePrio extends Article implements AvecPrio {
 
 	@Override
 	public int getPrio() {
-		// TODO Auto-generated method stub
+		if (this.getQuantite()-STOCK_MINIMAL>0) {
+			this.prio=0;
+		}
+		else {
+			this.prio=STOCK_MINIMAL-this.getQuantite();
+		}	
 		return prio;
 	}
 	
-	public void setPrio(int priorite) {
-		prio=priorite;
-	}
+//	public void setPrio(int priorite) {
+//		prio=priorite;
+//	}
 	
 	@Override
 	public String toString()
