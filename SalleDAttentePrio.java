@@ -118,10 +118,22 @@ public class SalleDAttentePrio<TC extends AvecPrio> implements SalleDAttente<TC>
             }
         }
     }
-//	@Override
-//	public int getPrio() {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
+    
+    public void reorganiserERWANN() {
+    	for (Map.Entry<Integer,SalleDAttentePAPS<TC>> priot: salle.entrySet()) {
+	    	for (TC salleAtt:priot.getValue()) {
+		    	int prioact=salleAtt.getPrio();
+		    	if(prioact!=priot.getKey()) {
+			    	entrer(salleAtt);
+			    	salle.get(priot.getKey()).remove(salleAtt);
+		    	}
+	    	}
+	//	@Override
+	//	public int getPrio() {
+	//		// TODO Auto-generated method stub
+	//		return 0;
+	//	}
 
+    		}
+    	}
 }
